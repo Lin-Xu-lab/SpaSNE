@@ -25,7 +25,8 @@ file and the "__pycache__" folder.
 
 	2.1 Please use Jupyter notebook to open the 
 		preprocessing_BreastCancer1272_example.ipynb for the Human Breast Cancer 
-		example.
+		example. Before running this file, please type "tar xvzf data.tar.gz" in
+		the terminal to obtain the "data" folder. 
 
 Please see the "LICENSE" file for the copyright information. 
 
