@@ -1,5 +1,12 @@
 # SpaSNE
 
+The spatially resolved t-distributed stochastic neighbor embedding method (SpaSNE) is an 
+extension of t-SNE and was designed to preserve both global gene expression and spatial 
+structure for spatially resolved profiling data. SpaSNE leverages both gene expression 
+and spatial information from histology image to give a comprehensive low dimensional 
+visualization that best reflects the molecular similarities of cells and the spatial 
+interactions among cells.  
+
 python_version = 3.8.8
 
 pandas_version = 1.3.4
