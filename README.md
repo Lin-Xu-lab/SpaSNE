@@ -1,10 +1,13 @@
 # SpaSNE
 
 python_version = 3.8.8
+
 pandas_version = 1.3.4
 
 Please run "gmake" in the terminal to generate the "spasne" executable file.
+
 Please run "gmake clean" in the terminal to remove the "spasne" executable file.
+
 Please run "gmake clean0" in the terminal to remove both the "spasne" executable
 file and the "__pycache__" folder.
 
