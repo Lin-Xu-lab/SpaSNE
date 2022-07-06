@@ -13,7 +13,7 @@ between cells.
 Below is an example of the SpaSNE visualization for the mouse visual Cortex 
 data.
 
-![mouse_visualCortex_image_and_SpaSNE_result](/images/mouse_visualCortex_image_and_SpaSNE_result.png)
+![mouse_visualCortex_image_and_SpaSNE_result](/images/mouse_visualCortex_annotation_and_SpaSNE_result.png)
 
 𝑟1: Pearson correlation coefficient between the gene expression's pairwise 
     Euclidean distances and the SpaSNE points' distances in the embedding 
@@ -132,10 +132,98 @@ cluster_label = list(df_labels['LayerName'])
 adata = sc.AnnData(X = df_data, obs = df_pixel, var = df_PCs)
 adata.obs['gt'] = cluster_label
 ```
-/home/chentang/anaconda3/lib/python3.8/site-packages/anndata/_core/anndata.py:120: ImplicitModificationWarning: Transforming to str index.
-  warnings.warn("Transforming to str index.", ImplicitModificationWarning)
-
 Visualizing spots from image
+```
+matplotlib.rcParams['font.size'] = 12.0
+fig, axes = plt.subplots(1, 1, figsize=(6,5))
+sz = 100
+
+plot_color=['#911eb4', '#46f0f0','#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231',  '#f032e6', \
+            '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#ffd8b1', '#800000', '#aaffc3', '#808000', '#000075', '#000000', '#808080', '#ffffff', '#fffac8']
+domains="gt"
+num_celltype=len(adata.obs[domains].unique())
+adata.uns[domains+"_colors"]=list(plot_color[:num_celltype])
+titles = 'Mouse visual cortex'
+ax=sc.pl.scatter(adata,alpha=1,x="y_pixel",y="x_pixel",color=domains,title=titles ,color_map=plot_color,show=False,size=sz,ax = axes)
+ax.axis('off')
+ax.axes.invert_yaxis()
+```
+![mouse_visualCortex_image_and_SpaSNE_result](/images/mouse_visualCortex_annotation.png)
+Calculating data distances and spatial distances
+```
+N = df_data.shape[0]
+X = np.array(df_data)
+dist_sq = euclidean_distances(X, X)
+dist_sq = (dist_sq + dist_sq.T) / 2.0
+dist_data = scipy.spatial.distance.squareform(dist_sq)
+X_spa = np.array(df_pixel)
+dist_sq = euclidean_distances(X_spa,X_spa)
+dist_sq = (dist_sq + dist_sq.T) / 2.0
+dist_spatial = scipy.spatial.distance.squareform(dist_sq)
+df_pixel = df_pixel.astype(np.float64)
+```
+Performing t-SNE embedding
+```
+alpha = 0.0
+beta = 0.0
+tsne_pos = spasne.run_spasne(df_data, df_pixel, alpha, beta, randseed = 5, initial_dims=df_data.shape[1])
+dist_sq = euclidean_distances(tsne_pos, tsne_pos)
+dist_sq = (dist_sq + dist_sq.T)/2
+dist_model = scipy.spatial.distance.squareform(dist_sq)
+# Measuring gene expression presrvation
+(r1,_) = scipy.stats.pearsonr(dist_data, dist_model)
+# Measuring spatial structure presrvation
+(r2,_) = scipy.stats.pearsonr(dist_spatial, dist_model)
+# Calculating silhouette score based on ground truth annotations
+ss = sklearn.metrics.silhouette_score(tsne_pos,cluster_label)
+quant_eval_tsne = [r1,r2,ss]
+adata.obs['tsne_pos_x'] = tsne_pos[:,0]
+adata.obs['tsne_pos_y'] = tsne_pos[:,1]
+
+```
+Visualizing spots from t-SNE embedding
+```
+matplotlib.rcParams['font.size'] = 12.0
+fig, axes = plt.subplots(1, 1, figsize=(6,5))
+domains="gt"
+num_celltype=len(adata.obs[domains].unique())
+adata.uns[domains+"_colors"]=list(plot_color[:num_celltype])
+titles = 't-SNE, ' + 'r1 = %.2f'% quant_eval_tsne[0] + ', r2 = %.2f'%quant_eval_tsne[1] + ', s = %.2f'%quant_eval_tsne[2]
+ax=sc.pl.scatter(adata,alpha=1,x="tsne_pos_x",y="tsne_pos_y",color=domains,title=titles,color_map=plot_color,show=False,size=sz,ax = axes)
+ax.axis('off')
+
+```
+(-7.451521853408612, 9.16820293951664, -11.582022822788456, 9.920880900761276)
+![mouse_visualCortex_image_and_SpaSNE_result](/images/mouse_visualCortex_t-SNE_result.png)
+Performing SpaSNE embedding
+```
+alpha = 9.0
+beta = 2.25
+spasne_pos = spasne.run_spasne(df_data, df_pixel, alpha, beta, randseed = 5, initial_dims=df_data.shape[1])
+dist_sq = euclidean_distances(spasne_pos, spasne_pos)
+dist_sq = (dist_sq + dist_sq.T)/2
+dist_model = scipy.spatial.distance.squareform(dist_sq)
+(r1,_) = scipy.stats.pearsonr(dist_data, dist_model)
+(r2,_) = scipy.stats.pearsonr(dist_spatial, dist_model)
+ss = sklearn.metrics.silhouette_score(spasne_pos,cluster_label)
+quant_eval_spasne = [r1,r2,ss]
+adata.obs['spasne_pos_x'] = spasne_pos[:,0]
+adata.obs['spasne_pos_y'] = spasne_pos[:,1]
+```
+Visualizing spots from SpaSNE embedding
+```
+matplotlib.rcParams['font.size'] = 12.0
+fig, axes = plt.subplots(1, 1, figsize=(6,5))
+domains="gt"
+num_celltype=len(adata.obs[domains].unique())
+adata.uns[domains+"_colors"]=list(plot_color[:num_celltype])
+titles = 'spaSNE, ' + 'r1 = %.2f'% quant_eval_spasne[0] + ', r2 = %.2f'%quant_eval_spasne[1] + ', s = %.2f'%quant_eval_spasne[2]
+ax=sc.pl.scatter(adata,alpha=1,x="spasne_pos_x",y="spasne_pos_y",color=domains,title=titles,color_map=plot_color,show=False,size=sz,ax = axes)
+ax.axis('off')
+ax.axes.invert_xaxis()
+
+```
+![mouse_visualCortex_image_and_SpaSNE_result](/images/mouse_visualCortex_spaSNE_result.png)
 	
 # Copyright information
 
