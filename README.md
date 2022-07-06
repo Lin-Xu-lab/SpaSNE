@@ -59,15 +59,13 @@ Please run the following command in the terminal to remove both the
 gmake clean0
 ```
 
-#Parameter setting
+# Parameter setting
 
 SpaSNE has two key parameters: the global gene expression weight 𝛼 which balances local and global gene expression preservation, and the spatial weight 𝛽 which balances gene expression and spatial structure preservation. Larger 𝛼 leads to larger 𝑟1 and smaller 𝑟2, while larger 𝛽 leads to larger 𝑟2 and smaller 𝑟1. Thus, a proper ratio between 𝛼 and 𝛽 is required to give a good preservation of both gene expression preservation and spatial structure preservation. In addition to the relative ratio between 𝛼 and 𝛽, we noticed that the magnitude of 𝛼 influences the reproducibility of the embedding. Larger 𝛼 results in higher chance of failure of embedding, especially when the data size is small. Based on the above considerations and
 
 the experiences on five real datasets, we gave the following recommendations for setting 𝛼 and 𝛽: 
 
-𝛼∈[5,10] 𝛽∈[1,5]
-
-𝛼/𝛽≥2. 
+𝛼 ∈ [6,10],  𝛽 ∈ [1,5],  𝛼/𝛽 ≥ 2. 
 
 1. There are two SpaSNE examples in the "spasne-examples" folder:
 
