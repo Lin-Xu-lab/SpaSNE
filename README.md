@@ -100,7 +100,7 @@ was available, and 𝛼 = 8, 𝛽 = 0 if spatial input was not provided .
 		
 Below, we show an example for the mouse visual Cortex data. First, please type
 ```
-spasne-examples
+cd spasne-examples
 ```
 in the terminal to enter the "spasne-examples" folder.
 
