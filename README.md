@@ -31,11 +31,12 @@ your machine. However, if you find the code stuck there, we recommend you
 to set up the environment as the same with our successful test. An option 
 to set up the environment is to use Conda 
 (https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
-You can use the following command to set up the environment:
-'''
+
+You can use the following commands to set up the environment:
+```
 conda create -n myenv python=3.8.8 pandas=1.3.4 jupyter
 conda activate myenv
-'''
+```
 
 After you set up the environment 
 
