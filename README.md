@@ -8,6 +8,8 @@ presents a comprehensive visualization in the low-dimensional space, which best
 reflects the molecular similarities of cells and the spatial interactions 
 between cells. 
 
+# Result
+
 python_version = 3.8.8
 
 pandas_version = 1.3.4
