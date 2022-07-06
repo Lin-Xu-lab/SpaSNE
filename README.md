@@ -61,11 +61,22 @@ gmake clean0
 
 # Parameter setting
 
-SpaSNE has two key parameters: the global gene expression weight 𝛼 which balances local and global gene expression preservation, and the spatial weight 𝛽 which balances gene expression and spatial structure preservation. Larger 𝛼 leads to larger 𝑟1 and smaller 𝑟2, while larger 𝛽 leads to larger 𝑟2 and smaller 𝑟1. Thus, a proper ratio between 𝛼 and 𝛽 is required to give a good preservation of both gene expression preservation and spatial structure preservation. In addition to the relative ratio between 𝛼 and 𝛽, we noticed that the magnitude of 𝛼 influences the reproducibility of the embedding. Larger 𝛼 results in higher chance of failure of embedding, especially when the data size is small. Based on the above considerations and
-
-the experiences on five real datasets, we gave the following recommendations for setting 𝛼 and 𝛽: 
+SpaSNE has two key parameters: the global gene expression weight 𝛼 
+which balances local and global gene expression preservation, and the 
+spatial weight 𝛽 which balances gene expression and spatial structure 
+preservation. Larger 𝛼 leads to larger 𝑟1 and smaller 𝑟2, while larger 
+𝛽 leads to larger 𝑟2 and smaller 𝑟1. Thus, a proper ratio between 𝛼 and 𝛽 
+is required to give a good preservation of both gene expression 
+preservation and spatial structure preservation. In addition to the 
+relative ratio between 𝛼 and 𝛽, we noticed that the magnitude of 𝛼 
+influences the reproducibility of the embedding. Larger 𝛼 results in 
+higher chance of failure of embedding, especially when the data size is 
+small. Based on the above considerations and the experiences on five 
+real datasets, we gave the following recommendations for setting 𝛼 and 𝛽: 
 
 𝛼 ∈ [6,10],  𝛽 ∈ [1,5],  𝛼/𝛽 ≥ 2. 
+
+# Examples
 
 1. There are two SpaSNE examples in the "spasne-examples" folder:
 
@@ -83,6 +94,50 @@ the experiences on five real datasets, we gave the following recommendations for
 		preprocessing_BreastCancer1272_example.ipynb for the Human Breast Cancer 
 		example. Before running this file, please type "tar xvzf data.tar.gz" in
 		the terminal to obtain the "data" folder. 
+		
+Below, we show an example for the mouse visual Cortex data. First, please type
+```
+spasne-examples
+```
+in the terminal to enter the "spasne-examples" folder.
+
+Then, type
+```
+jupyter notebook &
+```
+to open the jupyter notebook. Click the spasne_VisualCortex1207_example.ipynb file to
+open it. 
+
+```
+import sys
+import pandas as pd
+import numpy as np
+import scanpy as sc
+import scipy
+import sklearn
+from sklearn.metrics.pairwise import euclidean_distances
+import matplotlib
+import matplotlib.pyplot as plt
+import matplotlib.colors as clr
+sys.path.append("..")
+import spasne
+```
+Loading data and transforming it to AnnData object
+```
+df_data = pd.read_csv('data/mouse_VisualCortex1207_data_pc200.csv',sep=",",header=0,na_filter=False,index_col=None) 
+df_pixel = pd.read_csv('data/mouse_VisualCortex1207_pixels.csv',sep=",",header=0,na_filter=False,index_col=0) 
+df_labels = pd.read_csv('data/mouse_VisualCortex1207_labels.csv',sep=",",header=0,na_filter=False,index_col=0) 
+df_PCs = pd.DataFrame(list(df_data.columns), index = df_data.columns, columns =['PCs'] )
+cluster_label = list(df_labels['LayerName'])
+adata = sc.AnnData(X = df_data, obs = df_pixel, var = df_PCs)
+adata.obs['gt'] = cluster_label
+```
+/home/chentang/anaconda3/lib/python3.8/site-packages/anndata/_core/anndata.py:120: ImplicitModificationWarning: Transforming to str index.
+  warnings.warn("Transforming to str index.", ImplicitModificationWarning)
+
+Visualizing spots from image
+	
+# Copyright information
 
 Please see the "LICENSE" file for the copyright information. 
 
