@@ -10,10 +10,10 @@ between cells.
 
 # Result
 
-Below is an example of the SpaSNE visualization for the Mouse Visual Cortex 
+Below is an example of the SpaSNE visualization for the mouse visual Cortex 
 data.
 
-![GitHub Logo](/images/mouse_visualCortex_image_and_SpaSNE_result.png)
+![mouse_visualCortex_image_and_SpaSNE_result](/images/mouse_visualCortex_image_and_SpaSNE_result.png)
 
 python_version = 3.8.8
 
