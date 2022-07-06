@@ -10,6 +10,11 @@ between cells.
 
 # Result
 
+Below is an example of the SpaSNE visualization for the Mouse Visual Cortex 
+data.
+
+![GitHub Logo](/images/Model_plot.png)
+
 python_version = 3.8.8
 
 pandas_version = 1.3.4
