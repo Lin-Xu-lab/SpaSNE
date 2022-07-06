@@ -74,7 +74,7 @@ higher chance of failure of embedding, especially when the data size is
 small. Based on the above considerations and the experiences on five 
 real datasets, we gave the following recommendations for setting 𝛼 and 𝛽: 
 
-𝛼 ∈ [6,10],  𝛽 ∈ [1,5],  𝛼/𝛽 ≥ 2. 
+𝛼 ∈ [6,10],  𝛽 ∈ [1,5],  𝛼 / 𝛽 ≥ 2. 
 
 The default parameters for SpaSNE were set as 𝛼 = 8, 𝛽 =2  if spatial input 
 was available, and 𝛼 = 8, 𝛽 = 0 if spatial input was not provided . 
