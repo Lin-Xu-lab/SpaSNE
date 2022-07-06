@@ -32,26 +32,32 @@ to set up the environment as the same with our successful test. An option
 to set up the environment is to use Conda 
 (https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
 
-You can use the following commands to set up the environment:
+You can use the following command to create an enviroment for SpaSNE:
 ```
 conda create -n myenv python=3.8.8 pandas=1.3.4 jupyter
+```
+and use the folloing command to activate it:
+```
 conda activate myenv
 ```
 
-After you set up the environment 
+After you set up the environment, please run the following command in the 
+terminal to generate the "spasne" executable file.
+```
+gmake
+```
 
+Please run the following command in the terminal to remove the "spasne" 
+executable file.
+```
+gmake clean
+```
 
-
-python_version = 3.8.8
-
-pandas_version = 1.3.4
-
-Please run "gmake" in the terminal to generate the "spasne" executable file.
-
-Please run "gmake clean" in the terminal to remove the "spasne" executable file.
-
-Please run "gmake clean0" in the terminal to remove both the "spasne" executable
-file and the "__pycache__" folder.
+Please run the following command in the terminal to remove both the 
+"spasne" executable file and the "__pycache__" folder.
+```
+gmake clean0
+```
 
 1. There are two SpaSNE examples in the "spasne-examples" folder:
 
