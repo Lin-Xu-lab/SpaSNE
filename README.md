@@ -36,7 +36,7 @@ You can use the following command to create an enviroment for SpaSNE:
 ```
 conda create -n myenv python=3.8.8 pandas=1.3.4 jupyter
 ```
-and use the folloing command to activate it:
+You can use the folloing command to activate it:
 ```
 conda activate myenv
 ```
