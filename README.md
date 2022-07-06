@@ -13,7 +13,7 @@ between cells.
 Below is an example of the SpaSNE visualization for the Mouse Visual Cortex 
 data.
 
-![GitHub Logo](/images/Model_plot.png)
+![GitHub Logo](/images/mouse_visualCortex_image_and_SpaSNE_result.png)
 
 python_version = 3.8.8
 
