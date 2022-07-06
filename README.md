@@ -13,7 +13,7 @@ between cells.
 Below is an example of the SpaSNE visualization for the mouse visual Cortex 
 data.
 
-![mouse_visualCortex_image_and_SpaSNE_result](/images/mouse_visualCortex_annotation_and_SpaSNE_result.png)
+![Fig](/images/mouse_visualCortex_annotation_and_SpaSNE_result.png)
 
 𝑟1: Pearson correlation coefficient between the gene expression's pairwise 
     Euclidean distances and the SpaSNE points' distances in the embedding 
@@ -151,7 +151,8 @@ ax=sc.pl.scatter(adata,alpha=1,x="y_pixel",y="x_pixel",color=domains,title=title
 ax.axis('off')
 ax.axes.invert_yaxis()
 ```
-![mouse_visualCortex_image_and_SpaSNE_result](/images/mouse_visualCortex_annotation.png)
+![Fig](/images/mouse_visualCortex_annotation.png)
+
 Calculating data distances and spatial distances
 ```
 N = df_data.shape[0]
@@ -197,7 +198,8 @@ ax.axis('off')
 
 ```
 (-7.451521853408612, 9.16820293951664, -11.582022822788456, 9.920880900761276)
-![mouse_visualCortex_image_and_SpaSNE_result](/images/mouse_visualCortex_t-SNE_result.png)
+![Fig](/images/mouse_visualCortex_t-SNE_result.png)
+
 Performing SpaSNE embedding
 ```
 alpha = 9.0
@@ -226,8 +228,8 @@ ax.axis('off')
 ax.axes.invert_xaxis()
 
 ```
-![mouse_visualCortex_image_and_SpaSNE_result](/images/mouse_visualCortex_spaSNE_result.png)
-	
+![Fig](/images/mouse_visualCortex_spaSNE_result.png)
+
 # Copyright information
 
 Please see the "LICENSE" file for the copyright information. 
