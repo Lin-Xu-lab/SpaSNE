@@ -15,6 +15,32 @@ data.
 
 ![mouse_visualCortex_image_and_SpaSNE_result](/images/mouse_visualCortex_image_and_SpaSNE_result.png)
 
+𝑟1: Pearson correlation coefficient between the gene expression's pairwise 
+    Euclidean distances and the SpaSNE points' distances in the embedding 
+    space.
+
+𝑟2: Pearson correlation coefficient between the spatial locations' pairwise 
+    Euclidean distances and the SpaSNE points' distances in the embedding 
+    space. 
+    
+# Running environment and code compilation
+
+The code has been successuflly tested in an environment of python version 
+3.8.8 and pandas version 1.3.4. It may also work for the environment of 
+your machine. However, if you find the code stuck there, we recommend you
+to set up the environment as the same with our successful test. An option 
+to set up the environment is to use Conda 
+(https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
+You can use the following command to set up the environment:
+'''
+conda create -n myenv python=3.8.8 pandas=1.3.4 jupyter
+conda activate myenv
+'''
+
+After you set up the environment 
+
+
+
 python_version = 3.8.8
 
 pandas_version = 1.3.4
