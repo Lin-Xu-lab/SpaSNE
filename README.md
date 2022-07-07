@@ -8,7 +8,7 @@ presents a comprehensive visualization in the low-dimensional space, which best
 reflects the molecular similarities of cells and the spatial interactions 
 between cells. 
 
-# Result
+# Result 
 
 Below is an example of the SpaSNE visualization for the mouse visual Cortex 
 data.
