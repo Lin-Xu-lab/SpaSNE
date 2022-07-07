@@ -229,7 +229,7 @@ ax.axes.invert_xaxis()
 ```
 ![Fig](/images/mouse_visualCortex_spaSNE_result.png)
 
-# Copyright information
+# Copyright information 
 
 Please see the "LICENSE" file for the copyright information. 
 
