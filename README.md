@@ -108,8 +108,8 @@ Then, type
 ```
 jupyter notebook &
 ```
-to open the jupyter notebook. Click the spasne_VisualCortex1207_example.ipynb file to
-open it. 
+to open the jupyter notebook. Left click the spasne_VisualCortex1207_example.ipynb file 
+to open it. 
 
 Run the code below.
 ```
