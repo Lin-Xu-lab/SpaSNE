@@ -61,23 +61,23 @@ gmake clean0
 
 # Parameter setting
 
-SpaSNE has two key parameters: the global gene expression weight 𝛼 
-which balances local and global gene expression preservation, and the 
-spatial weight 𝛽 which balances gene expression and spatial structure 
-preservation. Larger 𝛼 leads to larger 𝑟1 and smaller 𝑟2, while larger 
-𝛽 leads to larger 𝑟2 and smaller 𝑟1. Thus, a proper ratio between 𝛼 and 𝛽 
-is required to give a good preservation of both gene expression 
-preservation and spatial structure preservation. In addition to the 
-relative ratio between 𝛼 and 𝛽, we noticed that the magnitude of 𝛼 
-influences the reproducibility of the embedding. Larger 𝛼 results in 
-higher chance of failure of embedding, especially when the data size is 
-small. Based on the above considerations and the experiences on five 
-real datasets, we gave the following recommendations for setting 𝛼 and 𝛽: 
+SpaSNE has two key parameters: The global gene expression weight 𝛼 that balances 
+the prevervations of local and global gene expressions, and the spatial weight 𝛽 
+that balances gene expressions and the spatial structure. A larger 𝛼 leads to a 
+larger 𝑟1 and a smaller 𝑟2, while a larger 𝛽 leads to a larger 𝑟2 and a smaller 𝑟1. 
+Thus, a proper ratio between 𝛼 and 𝛽 is required to give a satisfied preservation 
+of both the gene expressions and the spatial structure. In addition to the ratio 
+between 𝛼 and 𝛽, we noticed that the magnitude of 𝛼 influences the reproducibility 
+of the embedding. A larger 𝛼 results in a higher chance of embedding failure, 
+especially when the data size is small. Based on the above considerations and the 
+experiences from processing five real datasets, we give the following recommendations 
+for setting 𝛼 and 𝛽:  
 
-𝛼 ∈ [6,10], 𝛽 ∈ [1,5], 𝛼 / 𝛽 ≥ 2. 
+𝛼 ∈ [6,10], 𝛽 ∈ [1,5], and 𝛼 / 𝛽 ≥ 2. 
 
-The default parameters for SpaSNE were set as 𝛼 = 8, 𝛽 =2  if spatial input 
-was available, and 𝛼 = 8, 𝛽 = 0 if spatial input was not provided . 
+In this software package, the default parameters have been set as (𝛼 = 8, 𝛽 = 2) when 
+the input of the spatial information is available, and (𝛼 = 8, 𝛽 = 0) when there is no 
+input of the sptial information.  
 
 # Examples
 
