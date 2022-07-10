@@ -8,8 +8,8 @@ presents a comprehensive visualization in the low-dimensional space, which best
 reflects the molecular similarities of cells and the spatial interactions 
 between cells. 
 
-Publication: Dimensionality reduction for visualizing spatially resolved 
-             profiling data using SpaSNE.
+Paper: Dimensionality reduction for visualizing spatially resolved profiling 
+		data using SpaSNE.
 
 # Result
 
