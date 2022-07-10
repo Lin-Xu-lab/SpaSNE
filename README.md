@@ -171,7 +171,7 @@ Performing t-SNE embedding
 ```
 alpha = 0.0
 beta = 0.0
-tsne_pos = spasne.run_spasne(df_data, df_pixel, alpha, beta, randseed = 5, initial_dims=df_data.shape[1])
+tsne_pos = spasne.run_spasne(df_data, pixels = df_pixel, alpha = alpha, beta = beta, randseed = 5)
 dist_sq = euclidean_distances(tsne_pos, tsne_pos)
 dist_sq = (dist_sq + dist_sq.T)/2
 dist_model = scipy.spatial.distance.squareform(dist_sq)
