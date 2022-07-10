@@ -205,7 +205,7 @@ Performing SpaSNE embedding
 ```
 alpha = 9.0
 beta = 2.25
-spasne_pos = spasne.run_spasne(df_data, df_pixel, alpha, beta, randseed = 5, initial_dims=df_data.shape[1])
+spasne_pos = spasne.run_spasne(df_data, pixels = df_pixel, alpha = alpha, beta = beta)
 dist_sq = euclidean_distances(spasne_pos, spasne_pos)
 dist_sq = (dist_sq + dist_sq.T)/2
 dist_model = scipy.spatial.distance.squareform(dist_sq)
