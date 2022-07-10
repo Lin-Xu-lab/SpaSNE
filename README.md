@@ -111,7 +111,7 @@ jupyter notebook &
 to open the jupyter notebook. Left click the 
 spasne_VisualCortex1207_example.ipynb file to open it. 
 
-Run the code below.
+Run the code below:
 ```
 import sys
 import pandas as pd
