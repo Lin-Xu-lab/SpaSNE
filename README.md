@@ -73,7 +73,7 @@ especially when the data size is small. Based on the above considerations and th
 experiences from processing five real datasets, we give the following recommendations 
 for setting 𝛼 and 𝛽:  
 
-𝛼 ∈ [6,10], 𝛽 ∈ [1,5], and 𝛼 / 𝛽 ≥ 2. 
+𝛼 ∈ [5,15], 𝛽 ∈ [1,7.5], and 𝛼 / 𝛽 ≥ 2. 
 
 In this software package, the default parameters have been set as (𝛼 = 8, 𝛽 = 2) when 
 the input of the spatial information is available, and (𝛼 = 8, 𝛽 = 0) when there is no 
