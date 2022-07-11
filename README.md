@@ -108,7 +108,7 @@ there is no input of the sptial information.
 	2.1 Please use Jupyter notebook to open the 
 		preprocessing_BreastCancer1272_example.ipynb for the Human Breast Cancer 
 		example. Before running this file, please type the following command in
-		the terminal to obtain the "data" folder. 
+		the terminal to obtain the "data" folder: 
 ```
 tar xvzf data.tar.gz
 ```
