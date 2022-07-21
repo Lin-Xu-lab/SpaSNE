@@ -35,7 +35,7 @@ max_iter =1000 # maximum number of iterations
 Paper: Dimensionality reduction for visualizing spatially resolved profiling 
         data using SpaSNE.
 
-Please contact our team if you have any questions:
+Please contact our team if you have questions:
 Yuansheng Zhou (Yuansheng.Zhou@UTSouthwestern.edu)
 Chen Tang (Chen.Tang@UTSouthwestern.edu)
 Xue Xiao (Xiao.Xue@UTSouthwestern.edu)
