@@ -60,6 +60,26 @@ the terminal to generate the "spasne" executable file.
 gmake
 ```
 
+If you would like to import spasne in some other folders, an option is to 
+install it:
+```
+python setup.py install --user &> log
+```
+Then use
+```
+grep Installed log
+```
+in the terminal. You will see something like:
+Installed /home/chentang/anaconda3/lib/python3.8/site-packages/spasne-1.0-py3.8.egg
+
+Then, you need to copy the spasne file to the folder that the software is 
+installed:
+```
+cp spasne /home/chentang/anaconda3/lib/python3.8/site-packages/spasne-1.0-py3.8.egg/
+```
+After doing these successfully, you are supposed to be able to import spasne in 
+other folders.
+
 Please run the following command in the terminal to remove the "spasne" 
 executable file.
 ```
