@@ -15,9 +15,9 @@ Important default parameters:
 # Although these parameters are default, it is recommended to set them. 
 pixels: The cell-pixel matrix. 
 alpha: The weight parameter for the global term. 
-       By default, alpha = 8.
+       By default, alpha = 8 when there is the "pixels" input and 5 when not.
 beta: The weight parameter for the spatial term. 
-      By default, alpha = 2 when there is the "pixels" input. 
+      By default, beta = 2 when there is the "pixels" input and 0 when not. 
 
 Other default parameters:
 exaggeration = 4
@@ -203,7 +203,7 @@ def spasne(workdir, verbose=False):
         # The last piece of data is the cost for each sample, we ignore it
         #read_unpack('{}d'.format(sample_count), output_file)
         
-def run_spasne(data, pixels = None, alpha = 8.0, beta = 2.0, exaggeration = 4, no_dims=2, perplexity=50, theta=0.5, randseed=-1, verbose=False, initial_dims=0, use_pca=True, max_iter=1000):
+def run_spasne(data, pixels = None, alpha = 10.0, beta = 5.0, exaggeration = 4, no_dims=2, perplexity=50, theta=0.5, randseed=-1, verbose=False, initial_dims=0, use_pca=True, max_iter=1000):
 
     if initial_dims == 0:
     	initial_dims = min(data.shape[1], 200)
@@ -214,6 +214,7 @@ def run_spasne(data, pixels = None, alpha = 8.0, beta = 2.0, exaggeration = 4, n
         pixels.index = data.index
         pixels['x_pixel'] = 10000.0
         pixels['y_pixel'] = 10000.0
+        alpha = 5.0
         beta = 0.0
 
     # spasne works with fixed input and output paths, give it a temporary
